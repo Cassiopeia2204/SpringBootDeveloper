@@ -29,37 +29,42 @@ public class User implements UserDetails {
     private String password;
 
     @Builder
-    public User(String email, String password, String auth){
+    public User(String email, String password, String auth) {
         this.email = email;
         this.password = password;
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities(){
+    public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("user"));
     }
+
     @Override
-    public String getUsername(){
+    public String getUsername() {
         return email;
     }
+
     @Override
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
     @Override
-    public boolean isAccountNonExpired(){
+    public boolean isAccountNonExpired() {
         return true;
     }
+
     @Override
-    public boolean isAccountNonLocked(){
+    public boolean isAccountNonLocked() {
         return true;
     }
+
     @Override
-    public boolean isCredentialsNonExpired(){
+    public boolean isCredentialsNonExpired() {
         return true;
     }
+
     @Override
-    public boolean isEnabled(){
+    public boolean isEnabled() {
         return true;
     }
 }
